@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 17px;
+}
+
+.game-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+
+    display: flex;
+    gap: 50px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Hangman */
+
+.hangman {
+    position: relative;
+    width: 350px;
+    height: 350px;
+
+    background: #f7f8fc;
+    border-radius: 15px;
+}
+
+.gallows {
+    position: absolute;
+    left: 80px;
+    top: 45px;
+}
+
+.gallows .top {
+    width: 150px;
+    height: 8px;
+    background: #333;
+}
+
+.gallows .pole {
+    width: 8px;
+    height: 230px;
+    background: #333;
+}
+
+.gallows .base {
+    position: absolute;
+    left: -45px;
+    bottom: 0;
+
+    width: 100px;
+    height: 8px;
+
+    background: #333;
+}
+
+/* Body */
+
+.body-part {
+    display: none;
+    position: absolute;
+    border: 6px solid #333;
+}
+
+.head {
+    display: none;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    top: 80px;
+    left: 187px;
+}
+
+.body {
+    width: 6px;
+    height: 100px;
+
+    top: 135px;
+    left: 213px;
+
+    background: #333;
+}
+
+.left-arm,
+.right-arm {
+    width: 70px;
+    height: 6px;
+
+    top: 160px;
+    background: #333;
+}
+
+.left-arm {
+    left: 150px;
+    transform: rotate(-35deg);
+}
+
+.right-arm {
+    left: 210px;
+    transform: rotate(35deg);
+}
+
+.left-leg,
+.right-leg {
+    width: 70px;
+    height: 6px;
+
+    top: 230px;
+    background: #333;
+}
+
+.left-leg {
+    left: 150px;
+    transform: rotate(-45deg);
+}
+
+.right-leg {
+    left: 210px;
+    transform: rotate(45deg);
+}
+
+/* Game information */
+
+.game-info {
+    flex: 1;
+    text-align: center;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+
+    background: #f1f3f8;
+
+    padding: 15px 20px;
+
+    border-radius: 10px;
+
+    margin-bottom: 30px;
+}
+
+.status strong {
+    color: #e74c3c;
+}
+
+.word {
+    font-size: 35px;
+    letter-spacing: 12px;
+
+    margin: 30px 0;
+
+    font-weight: bold;
+}
+
+#message {
+    font-size: 17px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Letters */
+
+.letters {
+    display: grid;
+
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 8px;
+
+    margin-bottom: 25px;
+}
+
+.letter {
+    border: none;
+
+    background: #667eea;
+    color: white;
+
+    padding: 12px;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.letter:hover {
+    transform: translateY(-2px);
+    background: #5568d9;
+}
+
+.letter:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* New Game */
+
+.new-game {
+    border: none;
+
+    background: #764ba2;
+    color: white;
+
+    padding: 13px 30px;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.new-game:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+
+    .game-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hangman {
+        width: 300px;
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .word {
+        font-size: 25px;
+        letter-spacing: 7px;
+    }
+}

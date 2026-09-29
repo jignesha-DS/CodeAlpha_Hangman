@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hangman Game | CodeAlpha</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="game-container">
+
+        <div class="header">
+            <h1>🎮 Hangman Game</h1>
+            <p>Guess the hidden word before you run out of attempts!</p>
+        </div>
+
+        <div class="game-card">
+
+            <div class="hangman">
+                <div class="gallows">
+                    <div class="top"></div>
+                    <div class="pole"></div>
+                    <div class="base"></div>
+                </div>
+
+                <div id="head" class="body-part head"></div>
+                <div id="body" class="body-part body"></div>
+                <div id="left-arm" class="body-part left-arm"></div>
+                <div id="right-arm" class="body-part right-arm"></div>
+                <div id="left-leg" class="body-part left-leg"></div>
+                <div id="right-leg" class="body-part right-leg"></div>
+            </div>
+
+            <div class="game-info">
+
+                <div class="status">
+                    <span>Wrong Attempts</span>
+                    <strong id="wrong-count">0 / 6</strong>
+                </div>
+
+                <div id="word" class="word">
+                    _ _ _ _ _ _
+                </div>
+
+                <p id="message">Choose a letter to start!</p>
+
+                <div id="letters" class="letters"></div>
+
+                <button id="new-game" class="new-game">
+                    🔄 New Game
+                </button>
+
+            </div>
+
+        </div>
+
+        <footer>
+            <p>CodeAlpha Python Internship • Hangman Game</p>
+        </footer>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
